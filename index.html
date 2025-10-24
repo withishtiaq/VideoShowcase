@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Editing Showcase | Your Name</title>
+  <style>
+    /* 🌟 Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 5px solid #ffb400;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #ffb400;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .icon-box {
+      background: #ffb400;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 1.5rem;
+    }
+
+    .h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    /* 🎬 Video Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .video-card {
+      background: #fff;
+      border-left: 5px solid #ffb400;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUpFade 0.8s ease forwards;
+    }
+
+    .video-card:nth-child(1) { animation-delay: 0.2s; }
+    .video-card:nth-child(2) { animation-delay: 0.4s; }
+    .video-card:nth-child(3) { animation-delay: 0.6s; }
+    .video-card:nth-child(4) { animation-delay: 0.8s; }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .video-card iframe:hover {
+      transform: scale(1.02);
+    }
+
+    .video-card h4 {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .video-card .issuer {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .video-card .year {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 0.85rem;
+      color: #ff9800;
+      font-weight: 600;
+    }
+
+    .btn-view {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background: #ffb400;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background 0.3s;
+    }
+
+    .btn-view:hover {
+      background: #e09e00;
+    }
+
+    /* 🎥 Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-body {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+    }
+
+    .modal-video {
+      width: 100%;
+      height: 500px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close:hover {
+      color: #ffb400;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      border-top: 4px solid #ffb400;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* ✨ Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUpFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .modal-video {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🏠 Header -->
+  <header>
+    <h1>Your Name</h1>
+    <p>🎥 Video Editor | Visual Storyteller | Motion Creator</p>
+  </header>
+
+  <!-- 🎬 Video Showcase Section -->
+  <section>
+    <div class="title-wrapper">
+      <div class="icon-box">🎬</div>
+      <h3 class="h3">Video Editing Showcase</h3>
+    </div>
+
+    <div class="video-grid">
+      <!-- Video 1 -->
+<!-- … পূর্বের কোড একই … -->
+
+      <!-- প্রথম ভিডিও -->
+      <div class="video-card" onclick="openVideoModal('https://www.youtube.com/embed/PO0Iw2m4j6Y')">
+        <iframe src="https://www.youtube.com/embed/PO0Iw2m4j6Y" frameborder="0" allowfullscreen></iframe>
+        <h4>আপনার ভিডিওর শিরোনাম এখানে লিখুন</h4>
+        <p class="issuer">আপনার ব্যবহার করা সফটওয়্যার / টুলস</p>
+        <span class="year">2025</span>
+        <a href="https://youtu.be/PO0Iw2m4j6Y" target="_blank" class="btn-view">Watch on YouTube</a>
+      </div>
+
+<!-- … বাকি কোড … -->
+
+      <!-- Video 2 -->
+      <div class="video-card" onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID_2')">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+        <h4>Event Highlight Reel</h4>
+        <p class="issuer">Edited with CapCut Pro</p>
+        <span class="year">2025</span>
+        <a href="https://youtu.be/YOUR_VIDEO_ID_2" target="_blank" class="btn-view">Watch on YouTube</a>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card" onclick="openVideoModal('https://www.youtube.com/embed/YOUR_VIDEO_ID_3')">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+        <h4>AI-Based Promo Video</h4>
+        <p class="issuer">Edited using Runway & CapCut</p>
+        <span class="year">2025</span>
+        <a href="https://youtu.be/YOUR_VIDEO_ID_3" target="_blank" class="btn-view">Watch on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎥 Video Modal -->
+  <div id="videoModal" class="modal">
+    <div class="modal-body">
+      <span class="close" onclick="closeVideoModal()">&times;</span>
+      <iframe id="modalVideo" class="modal-video" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 📩 Footer -->
+  <footer>
+    © 2025 Your Name | Designed with ❤️ & #ffb400
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function openVideoModal(videoUrl) {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("modalVideo");
+      modal.style.display = "flex";
+      video.src = videoUrl + "?autoplay=1";
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("modalVideo");
+      modal.style.display = "none";
+      video.src = "";
+    }
+
+    document.getElementById("videoModal").addEventListener("click", function(e) {
+      if (e.target === this) closeVideoModal();
+    });
+  </script>
+</body>
+</html>
